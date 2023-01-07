@@ -4,8 +4,8 @@ import Signup from "./signup"
 
 export default function App() {
 
-  return<main>
-    <Login/>
-   <Signup/>
+  return <main>
+    <Login />
+    <Signup />
   </main>
 }
