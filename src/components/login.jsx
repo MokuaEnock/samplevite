@@ -9,6 +9,14 @@ export default function Login() {
     function handleOne(e) {
         e.preventDefault()
         console.log(email, name)
+        fetch("", {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json()).then(data => console.log(data))
+
     }
 
     function handleTwo(e) {
