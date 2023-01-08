@@ -5,29 +5,30 @@ export default function Login() {
     let [name, setName] = useState("")
     let [first, setFirst] = useState("")
     let [second, setSecond] = useState("")
+    let [id, setId] = useState('')
 
     function handleOne(e) {
         e.preventDefault()
-        console.log(email, name)
-        data = {
+        let data = {
             email, name
         }
-        fetch("", {
+        fetch("http://localhost:3000/users", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json'
             }
-        }).then(res => res.json()).then(data => console.log(data))
+        }).then(res => res.json()).then(data => setId(data.id))
+        console.log(id)
     }
 
     function handleTwo(e) {
         e.preventDefault()
-        console.log(email, name)
-        data = {
-            email, name
+        // console.log(email, name)
+        let data = {
+            user_id: id, first, second
         }
-        fetch("", {
+        fetch("http://localhost:3000/numbers", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
@@ -42,7 +43,7 @@ export default function Login() {
     }
     return <main id="login">
         <form id="form1" onSubmit={handleOne}>
-            <input type="email" placeholder="email" value={email} onChange={e => setEmail(e.target.value)} />
+            <input type="text" placeholder="email" value={email} onChange={e => setEmail(e.target.value)} />
             <input type="text" placeholder="name" value={name} onChange={e => setName(e.target.value)} />
             <button type="submit">Submit</button>
         </form>
