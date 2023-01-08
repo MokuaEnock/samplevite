@@ -9,6 +9,9 @@ export default function Login() {
     function handleOne(e) {
         e.preventDefault()
         console.log(email, name)
+        data = {
+            email, name
+        }
         fetch("", {
             method: "POST",
             body: JSON.stringify(data),
@@ -16,7 +19,21 @@ export default function Login() {
                 'Content-Type': 'application/json'
             }
         }).then(res => res.json()).then(data => console.log(data))
+    }
 
+    function handleTwo(e) {
+        e.preventDefault()
+        console.log(email, name)
+        data = {
+            email, name
+        }
+        fetch("", {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json()).then(data => console.log(data))
     }
 
     function handleTwo(e) {
