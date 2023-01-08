@@ -1,4 +1,11 @@
+import { useState } from "react"
+
 export default function Login() {
+    let [email, setEmail] = useState("")
+    let [name, setName] = useState("")
+    let [first, setFirst] = useState("")
+    let [second, setSecond] = useState("")
+
     return <main id="login">
         <form id="form1">
             <input type="email" placeholder="email" />
